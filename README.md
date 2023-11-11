@@ -22,8 +22,8 @@ This library provides a basic way to create GUI menus and buttons using JavaScri
 // Create main menu w/ buttons
 let template = SUI.createMenu('Template', '20px', '20px');
 template.addText('This is some sample text.');
-template.addButton('Click me', () => alert('Button clicked!'));
-template.addSlider('Volume', 0, 100, 50, (value) => console.log('Slider value:', value));
+template.addButton('Button', () => alert('Button clicked!'));
+template.addSlider('Slider', 0, 100, 50, (value) => console.log('Slider value:', value));
 template.addInput('Input', 'Default value', (value) => console.log('Input value:', value));
 
 // Create overlay
