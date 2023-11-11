@@ -1,5 +1,6 @@
 # SUI : script UI
-UI Library for browser mod menus or userscripts.
+UI Library for browser mod menus or userscripts. <br>
+custom theming coming soon
 
 ## Overview
 
