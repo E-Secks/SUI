@@ -141,7 +141,7 @@ const SUI = {
              menuContainer.style.top = menu.top;
              menuContainer.style.left = menu.left;
              menuContainer.style.padding = '20px';
-             menuContainer.style.backgroundColor = 'rgba(0, 0, 0, 0.2)';
+             menuContainer.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
              menuContainer.style.color = '#fff';
              menuContainer.style.fontSize = '15px';
              menuContainer.style.zIndex = '9999';
@@ -270,7 +270,7 @@ const SUI = {
             overlayDiv.style.left = '0';
             overlayDiv.style.width = '100%';
             overlayDiv.style.height = '100%';
-            overlayDiv.style.backgroundColor = 'rgb(0 0 0 / 70%)';
+            overlayDiv.style.backgroundColor = 'rgb(0 0 0 / 20%)';
             overlayDiv.style.zIndex = '9998';
             overlayDiv.style.backdropFilter = 'blur(5px)';
     
