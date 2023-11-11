@@ -17,6 +17,7 @@ This library provides a basic way to create GUI menus and buttons using JavaScri
 2. Copy and paste the library code from `main.js` into the console.
 3. Use the provided functions to create menus and buttons, and then call `SUI.render()` to display the GUI.
 
+### Single page example
 ```javascript
 
 // Create main menu w/ buttons
@@ -39,4 +40,43 @@ window.addEventListener('keydown', (event) => {
 // Call render to display the GUI
 SUI.render();
 
+```
+
+### multi-page example
+```javascript
+// Create main menu w/ buttons
+let template = SUI.createMenu('Template', '20px', '20px');
+
+function defaultPage() {
+    SUI.clearMenu(template)
+    template.addText('default page');
+    template.addButton('Button', () => alert('Button clicked!'));
+    template.addSlider('Slider', 0, 100, 50, (value) => console.log('Slider value:', value));
+    template.addInput('Input', 'Default value', (value) => console.log('Input value:', value));
+    template.addButton('Go to other page', () => otherPage());
+    SUI.render()
+}
+function otherPage() {
+    SUI.clearMenu(template)
+    template.addText('other page');
+    template.addButton('Back', () => defaultPage());
+    SUI.render()
+}
+
+
+// Create overlay
+let overlay = SUI.createOverlay('Template')
+
+window.addEventListener('keydown', (event) => {
+  if (event.code === 'ShiftRight') {
+      SUI.toggleMenu(template)
+      SUI.toggleMenu(overlay)
+  }
+});
+
+// go to default page
+defaultPage()
+
+// Call render to display the GUI
+SUI.render();
 ```
