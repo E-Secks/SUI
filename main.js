@@ -270,7 +270,7 @@ const SUI = {
             overlayDiv.style.left = '0';
             overlayDiv.style.width = '100%';
             overlayDiv.style.height = '100%';
-            overlayDiv.style.backgroundColor = 'rgb(39 38 38 / 70%)';
+            overlayDiv.style.backgroundColor = 'rgb(0 0 0 / 70%)';
             overlayDiv.style.zIndex = '9998';
             overlayDiv.style.backdropFilter = 'blur(5px)';
     
