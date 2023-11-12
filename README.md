@@ -27,6 +27,14 @@ template.addText('This is some sample text.');
 template.addButton('Button', () => alert('Button clicked!'));
 template.addSlider('Slider', 0, 100, 50, (value) => console.log('Slider value:', value));
 template.addInput('Input', 'Default value', (value) => console.log('Input value:', value));
+template.addText('Beta features:');
+template.addCheckbox('Checkbox', true, (isChecked) => {
+    console.log('Checkbox state:', isChecked);
+});
+
+template.addColorPicker('Color Picker', '#00ff00', (color) => {
+    console.log('Selected color:', color);
+});
 
 // Create overlay
 let overlay = new SUI.overlay('Template')
