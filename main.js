@@ -331,6 +331,7 @@ const SUI = {
              header.style.textAlign = 'center';
              header.style.padding = '10px';
              header.style.fontWeight = 'bold';
+             header.style.fontFamily = "Rubik, sans-serif";
              header.style.fontSize = '30px';
              header.textContent = SUI.GUI.overlay.title;
              overlayDiv.appendChild(header);
@@ -355,6 +356,7 @@ const SUI = {
                 menuContainer.style.left = menu.left;
                 menuContainer.style.padding = '20px';
                 menuContainer.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+                menuContainer.style.fontFamily = "Rubik, sans-serif";
                 menuContainer.style.color = '#fff';
                 menuContainer.style.fontSize = '15px';
                 menuContainer.style.zIndex = '9999';
