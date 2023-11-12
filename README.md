@@ -55,13 +55,13 @@ function defaultPage() {
     template.addSlider('Slider', 0, 100, 50, (value) => console.log('Slider value:', value));
     template.addInput('Input', 'Default value', (value) => console.log('Input value:', value));
     template.addButton('Go to other page', () => otherPage());
-    SUI.render()
+    SUI.renderer.render()
 }
 function otherPage() {
     template.clear()
     template.addText('other page');
     template.addButton('Back', () => defaultPage());
-    SUI.render()
+    SUI.renderer.render()
 }
 
 
