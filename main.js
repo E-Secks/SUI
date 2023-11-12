@@ -284,26 +284,26 @@ const SUI = {
  
              if (element.type === 'button') {
                 let buttonElem = SUI.renderer.elements.renderButton(element);
-                elemContainer.appendChild(buttonElem);
+                element.element = elemContainer.appendChild(buttonElem);
              } else if (element.type === 'slider') {
                 let slider = SUI.renderer.elements.renderSlider(element);
-                elemContainer.appendChild(slider.label);
-                elemContainer.appendChild(slider.sliderInput);
+                element.label.element = elemContainer.appendChild(slider.label);
+                element.element = elemContainer.appendChild(slider.sliderInput);
              } else if (element.type === 'text') {
                 let textElem = SUI.renderer.elements.renderText(element);
-                elemContainer.appendChild(textElem);
+                element.element = elemContainer.appendChild(textElem);
              } else if (element.type === 'input') {
                 let input = SUI.renderer.elements.renderInput(element);
-                elemContainer.appendChild(input.inputLabel);
-                elemContainer.appendChild(input.inputElem);
+                element.label.element = elemContainer.appendChild(input.inputLabel);
+                element.element = elemContainer.appendChild(input.inputElem);
              } else if (element.type === 'checkbox') {
                 let checkbox = SUI.renderer.elements.renderCheckbox(element);
-                elemContainer.appendChild(checkbox.checkboxLabel);
-                elemContainer.appendChild(checkbox.checkboxInput);
+                element.label.element = elemContainer.appendChild(checkbox.checkboxLabel);
+                element.element = elemContainer.appendChild(checkbox.checkboxInput);
              } else if (element.type === 'colorPicker') {
                 let colorPicker = SUI.renderer.elements.renderColorPicker(element);
-                elemContainer.appendChild(colorPicker.colorPickerLabel);
-                elemContainer.appendChild(colorPicker.colorPickerInput);
+                element.label.element = elemContainer.appendChild(colorPicker.colorPickerLabel);
+                element.element = elemContainer.appendChild(colorPicker.colorPickerInput);
              }
  
              fragment.appendChild(elemContainer);
