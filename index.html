@@ -9,33 +9,32 @@
   <body>
 	<script src="main.js"></script>
   <script>
-    // Create main menu w/ buttons
-    let template = new SUI.panel('Template', '20px', '20px');
-    template.addText('This is some sample text.');
-    template.addButton('Button', () => alert('Button clicked!'));
-    template.addSlider('Slider', 0, 100, 50, (value) => console.log('Slider value:', value));
-    template.addInput('Input', 'Default value', (value) => console.log('Input value:', value));
-    template.addText('Beta features:');
-    template.addCheckbox('Checkbox', true, (isChecked) => {
-        console.log('Checkbox state:', isChecked);
-    });
-    
-    template.addColorPicker('Color Picker', '#00ff00', (color) => {
-        console.log('Selected color:', color);
-    });
-    
-    // Create overlay
-    let overlay = new SUI.overlay('Template')
-    
-    window.addEventListener('keydown', (event) => {
-       if (event.code === 'ShiftRight') {
-           template.toggle()
-           overlay.toggle()
-       }
-    });
-    
-    // Call render to display the GUI
-    SUI.renderer.render();
+        let logconsole = new SUI.panel('Logs', '20px', '350px');
+	logconsole.addText('This is the logs.');
+	
+	function log(text) {
+	    SUI.GUI.menus[0].elements[0].element.innerText = text
+	}
+	
+	
+	// Create main menu w/ buttons
+	let template = new SUI.panel('Template', '20px', '20px');
+	template.addText('This is some sample text.');
+	template.addButton('Button', () => log('Button clicked'));
+	template.addSlider('Slider', 0, 100, 50, (value) => log('Slider value: ' + value));
+	template.addInput('Input', 'Default value', (value) => log('Input value: ' + value));
+	template.addText('Beta features:');
+	template.addCheckbox('Checkbox', true, (isChecked) => {
+	    log('Checkbox state: ' + isChecked);
+	});
+	
+	template.addColorPicker('Color Picker', '#00ff00', (color) => {
+	    log('Selected color: ' + color);
+	});
+	
+	
+	// Call render to display the GUI
+	SUI.renderer.render();
 </script>
   </body>
 </html>
