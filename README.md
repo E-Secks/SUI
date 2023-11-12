@@ -39,7 +39,7 @@ window.addEventListener('keydown', (event) => {
 });
 
 // Call render to display the GUI
-SUI.render();
+SUI.renderer.render();
 
 ```
 
@@ -79,5 +79,5 @@ window.addEventListener('keydown', (event) => {
 defaultPage()
 
 // Call render to display the GUI
-SUI.render();
+SUI.renderer.render();
 ```
