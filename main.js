@@ -92,6 +92,26 @@ const SUI = {
            };
            this.elements.push(input);
        }
+       addCheckbox(label, checked, onChange) {
+         const checkbox = {
+             type: 'checkbox',
+             label,
+             checked,
+             onChange,
+         };
+         this.elements.push(checkbox);
+     }
+
+     // New method to add a color picker
+     addColorPicker(label, color, onChange) {
+         const colorPicker = {
+             type: 'colorPicker',
+             label,
+             color,
+             onChange,
+         };
+         this.elements.push(colorPicker);
+     }
        clear() {
            this.elements = []
        }
@@ -223,7 +243,37 @@ const SUI = {
                     });
  
                     elemContainer.appendChild(inputElem);
-                }
+               } else if (element.type === 'checkbox') {
+                     const checkboxLabel = document.createElement('div');
+                     checkboxLabel.style.padding = '5px';
+                     checkboxLabel.textContent = element.label;
+                     elemContainer.appendChild(checkboxLabel);
+     
+                     const checkboxInput = document.createElement('input');
+                     checkboxInput.type = 'checkbox';
+                     checkboxInput.checked = element.checked;
+     
+                     checkboxInput.addEventListener('change', () => {
+                         element.onChange(checkboxInput.checked);
+                     });
+     
+                     elemContainer.appendChild(checkboxInput);
+               } else if (element.type === 'colorPicker') {
+                     const colorPickerLabel = document.createElement('div');
+                     colorPickerLabel.style.padding = '5px';
+                     colorPickerLabel.textContent = element.label;
+                     elemContainer.appendChild(colorPickerLabel);
+     
+                     const colorPickerInput = document.createElement('input');
+                     colorPickerInput.type = 'color';
+                     colorPickerInput.value = element.color;
+     
+                     colorPickerInput.addEventListener('input', () => {
+                         element.onChange(colorPickerInput.value);
+                     });
+     
+                     elemContainer.appendChild(colorPickerInput);
+                 }
  
                 menuContainer.appendChild(elemContainer);
             });
