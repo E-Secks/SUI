@@ -308,23 +308,3 @@ const SUI = {
      }
    },
 };
-
-// Create main menu w/ buttons
-let template = new SUI.panel('Template', '20px', '20px');
-template.addText('This is some sample text.');
-template.addButton('Button', () => alert('Button clicked!'));
-template.addSlider('Slider', 0, 100, 50, (value) => console.log('Slider value:', value));
-template.addInput('Input', 'Default value', (value) => console.log('Input value:', value));
-
-// Create overlay
-let overlay = new SUI.overlay('Template')
-
-window.addEventListener('keydown', (event) => {
-   if (event.code === 'ShiftRight') {
-       template.toggle()
-       overlay.toggle()
-   }
-});
-
-// Call render to display the GUI
-SUI.renderer.render();
