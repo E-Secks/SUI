@@ -9,32 +9,47 @@
   <body>
 	<script src="main.js"></script>
   <script>
-        let logconsole = new SUI.panel('Logs', '20px', '380px');
+	let logconsole = new SUI.panel('Logs', '20px', '380px');
 	logconsole.addText('This is the logs.');
-	
+		
 	function log(text) {
-	    SUI.GUI.menus[0].elements[0].element.innerText = text
+	    SUI.GUI.menus[0].elements[0].content = text
+		SUI.GUI.menus[0].elements[0].element.innerText = text
 	}
-	
-	
+	function defaultPage() {
+	    template.clear()
+	    template.addText('This is some sample text.');
+		template.addButton('Button', () => logconsole.toggle());
+		template.addSlider('Slider', 0, 100, 50, (value) => log('Slider value: ' + value));
+		template.addInput('Input', 'Default value', (value) => log('Input value: ' + value));
+		template.addText('Beta features:');
+		template.addCheckbox('Checkbox', true, (isChecked) => {
+		    log('Checkbox state: ' + isChecked);
+		});
+		
+		template.addColorPicker('Color Picker', '#00ff00', (color) => {
+		    log('Selected color: ' + color);
+		});
+	    template.addButton('Go to other page', () => otherPage());
+	    SUI.renderer.render()
+	}
+	function otherPage() {
+	    log('switched page')
+	    template.clear()
+	    template.addText('other page');
+	    template.addButton('Back', () => defaultPage());
+	    SUI.renderer.render()
+	}
+		
+		
 	// Create main menu w/ buttons
 	let template = new SUI.panel('Template', '20px', '20px');
-	template.addText('This is some sample text.');
-	template.addButton('Button', () => log('Button clicked'));
-	template.addSlider('Slider', 0, 100, 50, (value) => log('Slider value: ' + value));
-	template.addInput('Input', 'Default value', (value) => log('Input value: ' + value));
-	template.addText('Beta features:');
-	template.addCheckbox('Checkbox', true, (isChecked) => {
-	    log('Checkbox state: ' + isChecked);
-	});
 	
-	template.addColorPicker('Color Picker', '#00ff00', (color) => {
-	    log('Selected color: ' + color);
-	});
-	
-	
+	// go to default page
+	defaultPage()
 	// Call render to display the GUI
 	SUI.renderer.render();
+	logconsole.toggle()
 </script>
   </body>
 </html>
