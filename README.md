@@ -22,20 +22,20 @@ This library provides a basic way to create GUI menus and buttons using JavaScri
 ```javascript
 
 // Create main menu w/ buttons
-let template = SUI.createMenu('Template', '20px', '20px');
+let template = new SUI.panel('Template', '20px', '20px');
 template.addText('This is some sample text.');
 template.addButton('Button', () => alert('Button clicked!'));
 template.addSlider('Slider', 0, 100, 50, (value) => console.log('Slider value:', value));
 template.addInput('Input', 'Default value', (value) => console.log('Input value:', value));
 
 // Create overlay
-let overlay = SUI.createOverlay('Template')
+let overlay = new SUI.overlay('Template')
 
 window.addEventListener('keydown', (event) => {
-  if (event.code === 'ShiftRight') {
-      SUI.toggleMenu(template)
-      SUI.toggleMenu(overlay)
-  }
+   if (event.code === 'ShiftRight') {
+       template.toggle()
+       overlay.toggle()
+   }
 });
 
 // Call render to display the GUI
@@ -46,10 +46,10 @@ SUI.render();
 ### multi-page example
 ```javascript
 // Create main menu w/ buttons
-let template = SUI.createMenu('Template', '20px', '20px');
+let template = new SUI.panel('Template', '20px', '20px');
 
 function defaultPage() {
-    SUI.clearMenu(template)
+    template.clear()
     template.addText('default page');
     template.addButton('Button', () => alert('Button clicked!'));
     template.addSlider('Slider', 0, 100, 50, (value) => console.log('Slider value:', value));
@@ -58,7 +58,7 @@ function defaultPage() {
     SUI.render()
 }
 function otherPage() {
-    SUI.clearMenu(template)
+    template.clear()
     template.addText('other page');
     template.addButton('Back', () => defaultPage());
     SUI.render()
@@ -66,12 +66,12 @@ function otherPage() {
 
 
 // Create overlay
-let overlay = SUI.createOverlay('Template')
+let overlay = new SUI.overlay('Template')
 
 window.addEventListener('keydown', (event) => {
   if (event.code === 'ShiftRight') {
-      SUI.toggleMenu(template)
-      SUI.toggleMenu(overlay)
+      template.toggle()
+      overlay.toggle()
   }
 });
 
